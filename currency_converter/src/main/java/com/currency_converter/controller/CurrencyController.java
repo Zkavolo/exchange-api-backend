@@ -38,24 +38,6 @@ public class CurrencyController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/sync")
-    public ResponseEntity<ApiResponse<String>> syncAllCurrencies() {
-        try {
-            currencyService.syncCurrencies();
-            ApiResponse<String> response = new ApiResponse<>();
-            response.setSuccess(true);
-            response.setMessage("All currencies synced successfully");
-            response.setData("Sync completed for all supported currencies");
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            ApiResponse<String> response = new ApiResponse<>();
-            response.setSuccess(false);
-            response.setMessage("Failed to sync currencies: " + e.getMessage());
-            response.setData(null);
-            return ResponseEntity.badRequest().body(response);
-        }
-    }
-
     @GetMapping("/count")
     public ResponseEntity<ApiResponse<Long>> getCurrencyCount() {
         long count = currencyServiceImpl.getCurrencyCount();
