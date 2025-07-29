@@ -48,16 +48,6 @@ public class CurrencyController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/status")
-    public ResponseEntity<ApiResponse<String>> getStatus() {
-        long count = currencyServiceImpl.getCurrencyCount();
-        ApiResponse<String> response = new ApiResponse<>();
-        response.setSuccess(true);
-        response.setMessage("Status retrieved");
-        response.setData(count > 0 ? "Database contains " + count + " currencies" : "Database is empty");
-        return ResponseEntity.ok(response);
-    }
-
     @GetMapping("/convert")
     public ResponseEntity<ApiResponse<ConvertExchangeDTOResponse>> getConvertion(
             @RequestParam(name = "baseCurrency", required = true) String baseCurrency,

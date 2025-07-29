@@ -5,6 +5,8 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import static com.currency_converter.util.constant.CurrencyConstant.SCHEDULE_CRON_TIME_FORMAT;
+
 @Service
 public class CurrencyScheduler {
 
@@ -20,7 +22,7 @@ public class CurrencyScheduler {
         currencyService.syncCurrencies();
     }
 
-    @Scheduled(cron = "0 0 0 * * *") // every day at midnight (00:00)
+    @Scheduled(cron = "${app.schedule.cron}")
     public void scheduledSync() {
         currencyService.syncCurrencies();
     }
