@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: currency_api
+    environment:
+      DB_SUPABASE: ${DB_SUPABASE}
+      USER_SUPABASE: ${USER_SUPABASE}
+      PASSWORD_SUPABASE: ${PASSWORD_SUPABASE}
+      EXCHANGERATE_API_KEY: ${EXCHANGERATE_API_KEY}
+    ports:
+      - "8080:8080"
