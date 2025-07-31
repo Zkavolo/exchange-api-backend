@@ -16,15 +16,15 @@ public class CurrencyScheduler {
         this.currencyService = currencyService;
     }
 
-    @PostConstruct
-    public void init() {
-        // Run once immediately on startup
-        currencyService.syncCurrencies();
-    }
-
-    @Scheduled(cron = "${app.schedule.cron}")
-    public void scheduledSync() {
-        currencyService.syncCurrencies();
-    }
+//    @PostConstruct
+//    public void init() {
+//        // Run once immediately on startup
+//        currencyService.syncCurrencies();
+//    }
+//
+//    @Scheduled(cron = "${app.schedule.cron}")
+//    public void scheduledSync() {
+//        currencyService.syncCurrencies();
+//    }
 }
 
